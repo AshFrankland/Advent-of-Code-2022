@@ -1,5 +1,3 @@
-import pprint
-
 def get_input():
     with open('Day_1_input.txt') as puzzle_input:
         raw_input = puzzle_input.readlines()
