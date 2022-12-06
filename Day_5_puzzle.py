@@ -1,3 +1,5 @@
+import copy
+
 def get_input():
     with open('Day_5_input.txt') as puzzle_input:
         raw_input = puzzle_input.readlines()
@@ -53,16 +55,17 @@ def move_stacks(crate_map, inst_nums):
 
 def main():
     crate_map, inst_nums = get_input()
-    crate_map = move_crates(crate_map, inst_nums)
+    crate_map_1 = copy.deepcopy(crate_map)
+    crate_map_1 = move_crates(crate_map_1, inst_nums)
     part1 = ''
-    for stack in range(len(crate_map)):
-        part1 += crate_map[stack + 1][-1]
+    for stack in range(len(crate_map_1)):
+        part1 += crate_map_1[stack + 1][-1]
     print(part1)
-    crate_map, inst_nums = get_input()
-    crate_map = move_stacks(crate_map, inst_nums)
+    crate_map_2 = copy.deepcopy(crate_map)
+    crate_map_2 = move_stacks(crate_map_2, inst_nums)
     part2 = ''
-    for stack in range(len(crate_map)):
-        part2 += crate_map[stack + 1][-1]
+    for stack in range(len(crate_map_2)):
+        part2 += crate_map_2[stack + 1][-1]
     print(part2)
 
 if __name__ == '__main__':
